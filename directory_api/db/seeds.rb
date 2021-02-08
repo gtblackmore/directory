@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+10.times do
+  Company.create(
+    name: Faker::Company.name,
+    address1: Faker::Address.street_address,
+    address2: Faker::Address.secondary_address,
+    city: Faker::Address.city,
+    state: Faker::Address.state,
+    zip: Faker::Address.zip,
+    phone: Faker::PhoneNumber.cell_phone,
+    email: Faker::Internet.email
+  )
+end
