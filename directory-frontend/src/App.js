@@ -4,20 +4,19 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from './NavBar'
 import CompanyCreate from './CompanyCreate'
 import CompanyDelete from './CompanyDelete'
-import CompanyDetail from './CompanyDetail'
+import CompanyItem from './CompanyItem'
 import CompanyEdit from './CompanyEdit'
-import CompanyIndex from './CompanyIndex'
+import CompanyListContainer from './CompanyListContainer';
 
 const App = () => {
   return (
     <Router>
       <NavBar />
-        <div>
-          <Route path="/" exact component={CompanyIndex} />
-          <Route path="/companies/edit" component={CompanyEdit} />
-          <Route path="/companies/show"  component={CompanyDetail} />
-          <Route path="/companies/delete"  component={CompanyDelete} />
-          <Route path="/companies/new"  component={CompanyCreate} />
+        <div className="ui container">
+          <Route path="/" exact component={CompanyListContainer} />
+          <Route path="/companies/edit/:id" exact component={CompanyEdit} />
+          <Route path="/companies/show"  exact component={CompanyItem} />
+          <Route path="/companies/new"  exact component={CompanyCreate} />
         </div>
     </Router>
 
