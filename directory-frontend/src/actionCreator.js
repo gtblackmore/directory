@@ -1,3 +1,5 @@
+import history from './history';
+
 export const fetchCompanies = () => {
   return (dispatch) => {
     fetch('http://localhost:3001/companies')
@@ -25,6 +27,7 @@ export const createCompany = (formValues) => {
       const company = data;
 
       dispatch({ type: "CREATE_COMPANY", payload: company });
+      history.push('/')
     })
   }
 };
@@ -36,13 +39,7 @@ export const fetchCompany = (id) => {
       .then(data => {
         const company = data;
 
-        dispatch({
-          type: "FETCH_COMPANY",
-          payload: {
-            company
-            }
-          }
-        )
+        dispatch({ type: "FETCH_COMPANY", payload: company })
       }
     )
   }
@@ -51,7 +48,7 @@ export const fetchCompany = (id) => {
 export const editCompany = (id, formValues) => {
   return (dispatch) => {
     fetch(`http://localhost:3001/companies/${id}`, {
-      method: "PUT",
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json"
     },
@@ -62,6 +59,7 @@ export const editCompany = (id, formValues) => {
       const company = data;
 
       dispatch({ type: "EDIT_COMPANY", payload: company });
+      history.push('/')
     })
   }
 };
