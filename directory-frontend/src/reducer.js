@@ -13,7 +13,6 @@ const companyReducer = (state = initialState, action) => {
         companies: action.payload
       }
     case 'FETCH_COMPANY':
-      console.log(action)
       return {
         companies: [...state.companies],
         selectedCompany: action.payload

@@ -27,7 +27,6 @@ class CompanyEdit extends React.Component {
     )}
 }
 const mapStateToProps = (state, ownProps) => {
-  console.log(state)
   return {company: state.companies.selectedCompany}
 }
 
