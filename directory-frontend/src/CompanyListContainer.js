@@ -18,7 +18,7 @@ class CompanyListContainer extends React.Component {
     if(!this.props.companies) {
       return <div>Loading...</div>
     }
-    
+
     return (
       <div>
         <CompanyList onCompanySelect={this.onCompanySelect} companies={this.props.companies}/>
@@ -28,7 +28,7 @@ class CompanyListContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { companies: state.companies }
+  return { companies: state.companies.companies }
 };
 
 export default connect(mapStateToProps, { fetchCompanies })(CompanyListContainer);

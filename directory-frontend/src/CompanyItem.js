@@ -19,7 +19,7 @@ const CompanyItem = ({company, onCompanySelect}) => {
         <span className="city-info">{company.city}, {company.state} {company.zip}</span>
       </div>
       <br />
-      <Link to={`/companies/edit/${company.id}`} onClick={() => onCompanySelect(company)} className="ui button">Edit Company</Link>
+      <Link to={`/companies/edit/${company.id}`} className="ui button">Edit Company</Link>
       </div>
     </div>
     </div>

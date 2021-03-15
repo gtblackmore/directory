@@ -1,11 +1,15 @@
 import React from 'react';
-import CompanyItem from './CompanyItem'
+import { connect } from 'react-redux';
+import CompanyItem from './CompanyItem';
 
-const CompanyList = ({companies, onCompanySelect}) => {
-   const renderedCompanies = companies.map((company) => {
-      return <CompanyItem onCompanySelect={onCompanySelect} company={company} key={company.id}/>;
-   })
+const CompanyList = (props) => {
+  console.log(props)
+  const renderedCompanies = props.companies.map((company) => {
+    return <CompanyItem company={company} key={company.id}/>;
+  })
    return <div className="ui relaxed divided list">{renderedCompanies}</div>
 };
 
-export default CompanyList;
+
+
+export default connect(null)(CompanyList);
