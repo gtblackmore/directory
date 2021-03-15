@@ -1,18 +1,31 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 
-const companyReducer = (state = [], action) => {
+const initialState = {
+  companies: [],
+  selectedCompany: []
+}
+
+const companyReducer = (state = initialState, action) => {
   switch(action.type) {
     case 'FETCH_COMPANIES':
-      return action.payload;
+      return {
+        companies: action.payload
+      }
     case 'FETCH_COMPANY':
-      return action.payload;
+      console.log(action)
+      return {
+        companies: [...state.companies],
+        selectedCompany: action.payload
+      }
     case 'EDIT_COMPANY':
-      return action.payload;
+      return {
+        companies:[...state.companies, action.payload]
+      }
     case 'CREATE_COMPANY':
-      return action.payload;
-    case 'SELECTED_COMPANY':
-      return action.payload;
+      return {
+        companies: [...state.companies, action.payload]
+      }
     default: {
       return state;
     }
