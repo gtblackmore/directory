@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import CompanyItem from './CompanyItem';
 
 const CompanyList = (props) => {
-  console.log(props)
   const renderedCompanies = props.companies.map((company) => {
     return <CompanyItem company={company} key={company.id}/>;
   })
