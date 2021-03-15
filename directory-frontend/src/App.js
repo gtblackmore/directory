@@ -1,16 +1,15 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-
+import { Router, Route } from 'react-router-dom';
+import history from './history';
 import NavBar from './NavBar'
 import CompanyCreate from './CompanyCreate'
-import CompanyDelete from './CompanyDelete'
 import CompanyItem from './CompanyItem'
 import CompanyEdit from './CompanyEdit'
 import CompanyListContainer from './CompanyListContainer';
 
 const App = () => {
   return (
-    <Router>
+    <Router history={history}>
       <NavBar />
         <div className="ui container">
           <Route path="/" exact component={CompanyListContainer} />
